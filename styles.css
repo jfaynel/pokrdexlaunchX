@@ -1,0 +1,782 @@
+:root {
+  --bg-rose: #ffabd4;
+  --bg-red: red;
+  --bg-darkred: #ba4a00;
+  --bg-darkgray: #474445;
+  --bg-black: #000000;
+  --bg-blue: #0d87ff;
+  --bg-lightblue: #8cc6ff;
+  --bg-skyblue: skyblue;
+  --bg-orange: #ffa60d;
+  --bg-lightorange: #ffdc96;
+  --bg-white: #ffffff;
+  --bg-yellow: yellow;
+  --bg-lightgreen: #51f57d;
+  --bg-shadow: rgba(116, 117, 116, 0.5);
+}
+
+body {
+  background-image: url("./images/trofeoPokemon.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center; /* center the image */
+  background-size: cover; /* cover the entire window */
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+.logo {
+  display: block;
+  margin: auto;
+  width: 700px;
+}
+
+@media screen and (min-width: 768px) {
+  .logo {
+    width: 20%;
+  }
+}
+
+.pokeindex * {
+  position: absolute;
+}
+
+.pokeindex {
+  height: 50rem;
+  width: 45rem;
+  margin: auto;
+  display: flex;
+}
+
+.pokeindex-left {
+  height: 60%;
+  width: 47%;
+  background-color: var(--bg-red);
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 2px solid var(--bg-black);
+  border-right-color: var(--bg-red);
+  border-radius: 0 0 0 10px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+}
+
+.pokeindex-left::before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 55%;
+  height: 9.6%;
+  border: 2px solid var(--bg-black);
+  background-color: var(--bg-red);
+  border-radius: 200px 0 0 0;
+  border-bottom: var(--bg-red);
+  top: -10%;
+  right: -4px;
+}
+
+.pokeindex-left__top {
+  width: 114%;
+  height: 25%;
+  border: 2px solid var(--bg-black);
+  border-radius: 10px 10px 0 0;
+  background-color: var(--bg-red);
+  top: -26%;
+  left: -0.5%;
+  z-index: -1;
+}
+
+.circle-big {
+  height: 70%;
+  width: 24%;
+  border: 2px solid var(--bg-black);
+  border-radius: 50%;
+  background-color: var(--bg-white);
+  top: 10%;
+  left: 3%;
+  box-shadow: inset 0px 0px 4px 1px var(--bg-shadow);
+}
+
+.circle-big::before {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 75%;
+  width: 75%;
+  border: 2px solid var(--bg-black);
+  border-radius: 50%;
+  background-color: var(--bg-blue);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.circle-big::after {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 15%;
+  width: 18%;
+  border-radius: 40px / 30px;
+  background-color: var(--bg-skyblue);
+  top: 25%;
+  left: 25%;
+  transform: rotate(-45deg);
+}
+
+.is-speak {
+  animation: pulse 0.7s infinite;
+  animation-timing-function: linear;
+  animation-delay: 2s;
+  -webkit-animation: pulse 0.7s infinite;
+}
+
+/* Animación */
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+.circle-small {
+  height: 15%;
+  width: 5%;
+  border: 2px solid var(--bg-black);
+  border-radius: 50%;
+  background-color: var(--bg-yellow);
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.circle-small::before {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border: 2px solid var(--bg-black);
+  background-color: var(--bg-darkred);
+  border-radius: 50%;
+  top: -15%;
+  left: -200%;
+}
+
+.circle-small::after {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border: 2px solid var(--bg-black);
+  background-color: var(--bg-lightgreen);
+  border-radius: 50%;
+  top: -15%;
+  right: -200%;
+}
+
+.pokeindex-left__screen {
+  height: 60%;
+  width: 80%;
+  border: 2px solid var(--bg-black);
+  background-color: var(--bg-white);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  border-radius: 5px 5px 5px 15%;
+  position: relative;
+  box-shadow: inset 0px 0px 4px 2px var(--bg-shadow);
+}
+
+.pokeindex-left__buttons {
+  height: 30%;
+  width: 80%;
+  left: 50%;
+  transform: translateX(-50%);
+  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.pokeindex-left__buttons .buttons {
+  height: 50%;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+}
+
+.pokeindex-left__buttons .buttons .buttons-circle {
+  height: 68%;
+  width: 18%;
+  border: 3px solid var(--bg-black);
+  background-color: var(--bg-darkgray);
+  border-radius: 50%;
+  position: relative;
+  margin-right: 5%;
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+}
+
+.pokeindex-left__buttons .buttons .buttons-circle img {
+  left: 3px;
+  top: 2px;
+  width: 42px;
+  height: 40px;
+}
+
+.pokeindex-left__buttons .buttons .buttons-circle:hover {
+  background-color: var(--bg-lightblue) !important;
+}
+
+.pokeindex-left__buttons .buttons .buttons-quad {
+  height: 70%;
+  width: 50%;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+
+.pokeindex-left__buttons .buttons .buttons-quad span {
+  height: 10%;
+  width: 42%;
+  border: 2px solid var(--bg-black);
+  position: relative;
+  border-radius: 5px;
+}
+
+.pokeindex-left__buttons .buttons .buttons-quad span:nth-child(1) {
+  background-color: var(--bg-darkred);
+}
+
+.pokeindex-left__buttons .buttons .buttons-quad span:nth-child(2) {
+  background-color: var(--bg-lightblue);
+}
+
+.pokeindex-left__buttons .controller {
+  height: 50%;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  position: relative;
+  margin-top: 5%;
+}
+
+.pokeindex-left__buttons .controller .controller-touch {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 63%;
+  width: 65%;
+  border: 2px solid var(--bg-black);
+  background-color: var(--bg-lightgreen);
+  border-radius: 5px;
+  position: relative;
+  box-shadow: inset 0px 0px 7px 3px var(--bg-shadow);
+  font-weight: bold;
+}
+
+.pokeindex-left__buttons .controller .controller-joystick {
+  height: 30%;
+  width: 30%;
+  border: 2px solid var(--bg-black);
+  background-color: var(--bg-darkgray);
+  border-radius: 5px;
+  position: relative;
+  margin-left: 5%;
+}
+
+.pokeindex-left__buttons .controller .controller-joystick::before {
+  content: "";
+  position: absolute;
+  display: block;
+  height: 100%;
+  width: 100%;
+  border: 2px solid var(--bg-black);
+  background-color: var(--bg-darkgray);
+  border-radius: 5px;
+  transform: rotate(90deg);
+  left: -2%;
+  top: -10%;
+  box-shadow: inset 0px 0px 3px 3px var(--bg-shadow);
+}
+
+.pokeindex-left__buttons .controller .controller-joystick::after {
+  content: "";
+  position: absolute;
+  display: block;
+  height: 100%;
+  width: 100%;
+  background-color: var(--bg-darkgray);
+  border-radius: 5px;
+  left: 0;
+  top: 0;
+}
+
+.pokeindex-left__screen .dots {
+  height: 3%;
+  width: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: baseline;
+  justify-content: space-around;
+  position: relative;
+}
+
+.pokeindex-left__screen .dots span {
+  height: 100%;
+  width: 25%;
+  border: 2px solid var(--bg-black);
+  background-color: var(--bg-red);
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+}
+
+.pokeindex-left__screen .screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 68%;
+  width: 85%;
+  border: 2px solid var(--bg-black);
+  background-color: var(--bg-black);
+  left: 50%;
+  transform: translateX(-50%);
+  position: relative;
+  border-radius: 10px;
+  box-shadow: inset 0px 0px 7px 8px var(--bg-shadow);
+  color: var(--bg-lightblue);
+  transition: all 0.5s ease-in;
+  -webkit-transition: all 0.5s ease-in;
+  -moz-transition: all 0.5s ease-in;
+  -ms-transition: all 0.5s ease-in;
+  -o-transition: all 0.5s ease-in;
+}
+
+.screen img {
+  width: 90%;
+  animation: show-img 2s 1 normal 0s ease-out both;
+  -webkit-animation: show-img 2s 1 normal 0s ease-out both;
+}
+
+.pokeindex-left__screen .status {
+  height: 20%;
+  width: 80%;
+  left: 50%;
+  transform: translateX(-50%);
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pokeindex-left__screen .status .status-light {
+  height: 50%;
+  width: 14%;
+  border: 2px solid var(--bg-black);
+  background-color: var(--bg-red);
+  border-radius: 50%;
+  position: relative;
+}
+
+.pokeindex-left__screen .status .status-light::after {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 25%;
+  width: 28%;
+  border-radius: 40px / 30px;
+  background-color: var(--bg-rose);
+  top: 20%;
+  left: 20%;
+  transform: rotate(-45deg);
+}
+
+.pokeindex-left__screen .status .status-sound {
+  height: 55%;
+  width: 17%;
+  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+}
+
+.pokeindex-left__screen .status .status-sound span {
+  height: 15%;
+  width: 100%;
+  background-color: var(--bg-black);
+  position: relative;
+  border-radius: 5px;
+}
+
+.pokeindex-middle {
+  height: 60%;
+  width: 6%;
+  background-color: var(--bg-red);
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 2px solid var(--bg-black);
+  box-shadow: inset 8px 0px 1px var(--bg-shadow);
+}
+
+.pokeindex-middle::before {
+  content: "";
+  position: absolute;
+  display: block;
+  height: 9%;
+  width: 100%;
+  border-top: 2px solid var(--bg-black);
+  border-bottom: 2px solid var(--bg-black);
+  left: 0;
+  top: -10%;
+  box-shadow: inset 8px 0px 1px var(--bg-shadow);
+}
+
+.pokeindex-middle::after {
+  content: "";
+  position: absolute;
+  display: block;
+  height: 5%;
+  width: 100%;
+  border-top: 2px solid var(--bg-black);
+  border-bottom: 2px solid var(--bg-black);
+  left: 0;
+  bottom: 5%;
+}
+
+.pokeindex-right {
+  height: 60%;
+  width: 47%;
+  background-color: var(--bg-red);
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 2px solid var(--bg-black);
+  border-left-color: var(--bg-red);
+  border-radius: 0 5px 5px 0;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-end;
+}
+
+.pokeindex-right::before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 55%;
+  height: 10%;
+  border: 2px solid var(--bg-black);
+  background-color: var(--bg-red);
+  border-radius: 0 200px 0 0;
+  border-bottom: var(--bg-red);
+  top: -10%;
+  left: -4px;
+}
+
+.pokeindex-right__screen {
+  width: 85%;
+  height: 40%;
+  padding-left: 0.7rem;
+  border: 2px solid var(--bg-black);
+  background-color: var(--bg-black);
+  left: 50%;
+  top: 5%;
+  transform: translateX(-50%);
+  border-radius: 10px;
+  position: relative;
+  box-shadow: inset 0px 0px 7px 8px var(--bg-shadow);
+  transition: all 0.5s ease-in;
+  -webkit-transition: all 0.5s ease-in;
+  -moz-transition: all 0.5s ease-in;
+  -ms-transition: all 0.5s ease-in;
+  -o-transition: all 0.5s ease-in;
+}
+
+.pokeindex-right__screen p,
+.pokeindex-right__screen ul {
+  animation: show-img 2s 1 normal 0s ease-out both;
+  -webkit-animation: show-img 2s 1 normal 0s ease-out both;
+}
+
+.pokeindex-right__screen p {
+  width: 85%;
+  color: var(--bg-lightblue);
+  margin: 1rem;
+}
+
+.pokeindex-right__screen ul {
+  width: 100%;
+  color: var(--bg-lightblue);
+  margin-left: 0.5rem;
+}
+
+.pokeindex-right__screen .loader {
+  width: 100%;
+  height: 70%;
+  margin-top: 1.5rem;
+}
+
+.screen .loader {
+  width: 70%;
+}
+
+.pokemon-attacks {
+  top: 1.6rem;
+}
+
+.pokemon-attack-1 {
+  top: 3.3rem;
+  left: 1.2rem;
+}
+
+.pokemon-attack-2 {
+  top: 5rem;
+  left: 1.2rem;
+}
+
+.pokemon-species {
+  top: 6.8rem;
+}
+
+.pokeindex-right__buttons {
+  width: 88%;
+  height: 25%;
+  left: 54%;
+  transform: translateX(-50%);
+  position: relative;
+  display: flex;
+  flex-flow: row wrap;
+  align-content: flex-end;
+}
+
+.pokeindex-right__buttons span {
+  width: 16%;
+  height: 32%;
+  border: 2px solid var(--bg-black);
+  background-color: var(--bg-lightblue);
+  position: relative;
+  border-radius: 5px;
+  margin: 0px 0.9px;
+  box-shadow: inset 0px 0px 3px 3px var(--bg-shadow);
+}
+
+.pokeindex-right__buttons-quadruple {
+  width: 80%;
+  height: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 10px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pokeindex-right__buttons-quadruple .dot {
+  height: 30%;
+  width: 50%;
+  position: relative;
+  display: flex;
+}
+
+.pokeindex-right__buttons-quadruple .dot span {
+  height: 90%;
+  width: 10%;
+  border: 2px solid var(--bg-black);
+  border-radius: 50%;
+  position: relative;
+  display: inline-block;
+  margin-left: 10%;
+}
+
+.pokeindex-right__buttons-quadruple .button {
+  height: 20%;
+  width: 50%;
+  position: relative;
+  display: flex;
+}
+
+.pokeindex-right__buttons-quadruple .button span {
+  height: 80%;
+  width: 100%;
+  border: 2px solid var(--bg-black);
+  border-radius: 1px;
+  background-color: var(--bg-darkgray);
+  position: relative;
+  display: inline-block;
+  margin-right: 5%;
+}
+
+.pokeindex-right__buttons-triple {
+  width: 80%;
+  height: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 10px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+
+.pokeindex-right__buttons-triple .button {
+  height: 100%;
+  width: 50%;
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+}
+
+.pokeindex-right__buttons-triple .button a {
+  height: 55%;
+  width: 35%;
+  position: relative;
+  border: 2px solid var(--bg-black);
+  background-color: var(--bg-white);
+  border-radius: 5px;
+  box-shadow: inset 0px 0px 4px 4px var(--bg-shadow);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s ease-in;
+  -webkit-transition: all 0.2s ease-in;
+  -moz-transition: all 0.2s ease-in;
+  -ms-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+}
+
+.text-paused {
+  margin-left: 8.5rem;
+  margin-top: 0.8rem;
+  font-weight: bold;
+  color: #fdcc00;
+  font-size: 0.8rem;
+}
+
+.hidden {
+  display: none;
+}
+
+.pokeindex-right__buttons-triple .button a:hover {
+  opacity: 0.7;
+}
+
+.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.pokeindex-right__buttons-triple .light {
+  height: 55%;
+  width: 15%;
+  border: 2px solid var(--bg-black);
+  background-color: var(--bg-orange);
+  border-radius: 50%;
+  position: relative;
+  align-self: flex-start;
+}
+
+.pokeindex-right__buttons-triple .light::after {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 25%;
+  width: 28%;
+  border-radius: 40px / 30px;
+  background-color: var(--bg-lightorange);
+  top: 20%;
+  left: 20%;
+  transform: rotate(-45deg);
+}
+
+.pokeindex-right__buttons-double {
+  width: 80%;
+  height: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 10px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.pokeindex-right__buttons-double a {
+  width: 40%;
+  height: 30%;
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+  align-items: center;
+  border: 2px solid var(--bg-black);
+  background-color: var(--bg-darkgray);
+  position: relative;
+  border-radius: 5px;
+  transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
+  padding: 5px;
+  box-shadow: inset 0px 0px 3px 3px var(--bg-shadow);
+}
+
+.pokeindex-right__buttons-double a:hover {
+  box-shadow: inset 0 0 20px rgba(49, 138, 172, 0.5),
+    0 0 20px rgba(49, 138, 172, 0.4);
+  text-shadow: 1px 1px 6px #fff;
+}
+
+.pokeindex-input {
+  width: 90%;
+  height: 10%;
+  left: 49%;
+  transform: translateX(-50%);
+  border-radius: 10px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.input-poke {
+  margin-left: 5px;
+  width: 170%;
+  border: 2px solid var(--bg-black);
+  padding: 2px 5px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+.text-input {
+  color: #fdcc00;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+@keyframes show-img {
+  0% {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  100% {
+    visibility: visible;
+    opacity: 1;
+  }
+}
