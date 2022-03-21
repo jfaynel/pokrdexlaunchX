@@ -1,0 +1,2 @@
+# pokrdexlaunchX
+Pokedex coding learning
